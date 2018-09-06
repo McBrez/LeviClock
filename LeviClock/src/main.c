@@ -25,10 +25,14 @@
 
 int main (void)
 {
-	/* Insert system clock initialization code here (sysclk_init()). */
+	// Clock and board init
 	sysclk_init();
 	board_init();
 
+	// VL6280 ranging sensor init
+	
+	
+	
 	bool i = false;
 	/* Replace with your application code */
 	PORTB = 0b00000000;

@@ -282,13 +282,15 @@ static inline void __portable_avr_delay_cycles(unsigned long n)
 
 int main (void)
 {
-	/* Insert system clock initialization code here (sysclk_init()). */
+	// Clock and board init
 	sysclk_init();
  150:	d5 df       	rcall	.-86     	; 0xfc <sysclk_init>
 	board_init();
  152:	d3 df       	rcall	.-90     	; 0xfa <board_init>
  154:	15 b8       	out	0x05, r1	; 5
-
+	
+	
+	
 	bool i = false;
 	/* Replace with your application code */
 	PORTB = 0b00000000;
@@ -296,11 +298,11 @@ int main (void)
 	DDRB  = 0b11111111;
  158:	84 b9       	out	0x04, r24	; 4
  15a:	c0 e0       	ldi	r28, 0x00	; 0
-{
-	/* Insert system clock initialization code here (sysclk_init()). */
-	sysclk_init();
-	board_init();
 
+	// VL6280 ranging sensor init
+	
+	
+	
 	bool i = false;
  15c:	0f ef       	ldi	r16, 0xFF	; 255
 			PORTB = 0b00000000;
