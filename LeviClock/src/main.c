@@ -22,16 +22,15 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 #include <asf.h>
+#include <USB_Comm.h>
 
 int main (void)
 {
 	// Clock and board init
 	sysclk_init();
 	board_init();
-
-	// VL6280 ranging sensor init
 	
-	
+	USB_Comm comm = new USB_Comm(9600);
 	
 	bool i = false;
 	/* Replace with your application code */
@@ -43,11 +42,13 @@ int main (void)
 		if(i)
 		{
 			PORTB = 0b00000000;
+			comm.writeChar( '0' );
 			i = false;
 		}
 		else
 		{
 			PORTB = 0b11111111;
+			comm.writeChar( '1' );
 			i = true;
 		}
 	}
